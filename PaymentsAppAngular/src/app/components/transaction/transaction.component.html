@@ -1,0 +1,19 @@
+
+<label for="ttype">Transfer type:</label>
+<select name="ttype" id="ttype" [(ngModel)]="transferType">
+  <option value="customer">Customers</option>
+  <option value="bank">Bank</option>
+</select>
+<br>
+<br>
+<label>Message Code:</label>
+<select  [(ngModel)]="msgCode">
+  <option value="c1">c1</option>
+  <option value="c2">c2</option>
+</select>
+<br>
+<br>
+<label>Enter Transfer Amount:</label>
+<input type="text" [(ngModel)]="transferAmount" appOnlyNumber>
+<br><br>
+<button (click)="transferBalance()" >Transfer</button>

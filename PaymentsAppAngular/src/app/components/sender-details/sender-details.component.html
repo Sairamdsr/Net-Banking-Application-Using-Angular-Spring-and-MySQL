@@ -1,0 +1,27 @@
+<h1>Payments</h1>
+
+<div id="card">
+    <div id="container">
+        <label for="">Enter Account Nnmber</label>
+<input type="text" [(ngModel)]="senderAccountNumber" appOnlyNumber="14" (ngModelChange)="enableButton()"/>
+<button (click)="getDetails()"  [disabled]="isDisabled">Get Details</button>
+<br>
+<br>
+<div *ngIf="isValidAcc; else display">
+<label for="">Name:</label>    
+<input type="text" value={{apiData.Name}} disabled>
+<br>    
+<label for="">Balance:</label>    
+<input type="text" value={{apiData.balance}} disabled> 
+<br>
+<br>
+<button (click)="reciverMethod()">Next</button>
+
+</div>
+    </div>
+</div>
+
+
+<ng-template #display>
+    <!-- <p>no details</p> -->
+</ng-template>

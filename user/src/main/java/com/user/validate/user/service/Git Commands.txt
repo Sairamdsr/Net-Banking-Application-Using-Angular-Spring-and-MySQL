@@ -1,0 +1,31 @@
+git branch  161  
+git branch featureA  162  
+git branch  164  
+git checkout featureA  165  
+git branch  166  
+ls  167  
+cp README_old.md README_new.md  168  
+vim README_new.md  169  
+git add .  170  
+git commit -m "added new readme"  171  
+git push origin featureA  172 
+ git checkout main  173  
+git status  177  
+ls  178  
+git pull  179  
+ls
+
+
+148  cp README.md README_old.md  
+149  git status  
+150  git add README_old.md  
+151  git commit -m "added readme_oldmd"  
+152  git push origin main  
+153  ls  
+154  rm -f README.md  
+155  git status  
+156  git rm README.md  
+157  git commit -m "remove readme file"  
+158  git push origin main
+
+

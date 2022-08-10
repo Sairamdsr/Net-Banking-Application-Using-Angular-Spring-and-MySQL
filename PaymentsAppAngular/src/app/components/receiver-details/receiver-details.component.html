@@ -1,0 +1,24 @@
+<label>BIC number</label>
+<input type="text" [ngModel]="bicNumber" (ngModelChange)="bicNumber = $event.toUpperCase()" (ngModelChange)="checkBICLen()">
+<button (click)="checkBIC()" [disabled]="isDisabled">check Bic</button>
+<br>
+<div *ngIf="isValidBIC; else display">
+    <label for="">Institution Name:</label>    
+    <input type="text" value={{rApiData.institutionName}} disabled>
+    <br>
+    <br>
+    <label> Account Holder Name:</label>
+    <input type="text" [(ngModel)]="accHolderName">
+    <br>
+    <label> Account Number:</label>
+    <input type="text" [(ngModel)]="accNumber" appOnlyNumber>
+    <!-- <button (click)="reciverMethod()">Next</button> -->
+    <br>
+    <br>
+    <button  (click)="checkSanction()" >next</button>
+</div>
+    
+    
+    <ng-template #display>
+        <!-- <p>no details</p> -->
+    </ng-template>
