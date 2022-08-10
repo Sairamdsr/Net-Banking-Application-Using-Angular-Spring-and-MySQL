@@ -10,7 +10,7 @@ import { AccountService } from 'src/app/services/account.service';
 export class TransactionComponent implements OnInit {
 
   transferAmount="";
-  transferType="customer";
+  transferType="";
   msgCode="";
 
   constructor(private router:Router,private accountService:AccountService) { }

@@ -1,24 +1,20 @@
 <h1>Payments</h1>
 
-<div id="card">
-    <div id="container">
-        <label for="">Enter Account Nnmber</label>
+<label for="">Enter Account Number</label>
 <input type="text" [(ngModel)]="senderAccountNumber" appOnlyNumber="14" (ngModelChange)="enableButton()"/>
-<button (click)="getDetails()"  [disabled]="isDisabled">Get Details</button>
+<button (click)="getDetails()"  [disabled]="isDisabled" class="btn btn-primary">Get Details</button>
 <br>
 <br>
 <div *ngIf="isValidAcc; else display">
 <label for="">Name:</label>    
-<input type="text" value={{apiData.Name}} disabled>
+<input type="text" value={{apiData.accountHolderName}} disabled>
 <br>    
 <label for="">Balance:</label>    
-<input type="text" value={{apiData.balance}} disabled> 
+<input type="text" value={{apiData.clearBalance}} disabled> 
 <br>
 <br>
-<button (click)="reciverMethod()">Next</button>
+<button (click)="reciverMethod()" class="btn btn-primary">Next</button>
 
-</div>
-    </div>
 </div>
 
 

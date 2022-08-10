@@ -13,9 +13,8 @@ export class ReceiverDetailsComponent implements OnInit {
   accHolderName="";
   accNumber="";
 
-  rApiData={
-    "bic":"AAAAA",
-    "institutionName":"HDFC",
+  rApiData:any={
+    bankName:""
   }
 
   isDisabled = true;
@@ -33,23 +32,51 @@ export class ReceiverDetailsComponent implements OnInit {
 
   this.accountService.checkBicService(this.bicNumber).subscribe(
       (data) => {
-
+        if(data===null){
+          alert("BIC NOt FOund")
+          // this.router.navigate(['/'])
+          // window.alert("BIC Not Valid")
+        }
+        else{
         console.log('LOGIN SUCCESS', data);
+        this.rApiData=data;
         this.accountService.createUserSession(data);
         this.isValidBIC=true;
-        this.router.navigate(['/'])
+        // this.router.navigate(['/'])
+        }
       },
       (error) => {
         console.log('LOGIN FAILURE', error);
       }
     );
-  this.isValidBIC=true;
  }  
 
  checkSanction(){
   console.log(this.accHolderName)
   console.log(this.accNumber)
-  this.router.navigate(['/transaction'])
+
+  this.accountService.sanctionService(this.accHolderName).subscribe(
+    (data) => {
+      if(data.message==="Found"){
+        alert("Transaction Rejected")
+        // this.router.navigate(['/'])
+        // window.alert("BIC Not Valid")
+      }
+      else{
+      console.log('LOGIN SUCCESS', data);
+      
+      this.router.navigate(['/transaction'])
+      // this.accountService.createUserSession(data);
+      // this.isValidBIC=true;
+      // this.router.navigate(['/'])
+      }
+    },
+    (error) => {
+      console.log('LOGIN FAILURE', error);
+    }
+  );
+
+  // this.router.navigate(['/transaction'])
  }
 
   checkBICLen(){

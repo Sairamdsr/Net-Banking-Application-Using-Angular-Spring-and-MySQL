@@ -24,7 +24,7 @@ export class AccountService {
   }
   checkBicService(bicNumber:String){
     const url =
-    'https://' + bicNumber ;
+    'http://localhost:8080/getBankDetails/' + bicNumber ;
   const data = {
     accNumber: bicNumber ,
   };
@@ -45,11 +45,20 @@ export class AccountService {
 
   activate(accountNo:Number){
     const url =
-      'https://' + accountNo ;
+      'http://localhost:8080/getSenderData/' + accountNo ;
     const data = {
       accNumber: accountNo ,
     };
     return this.httpClient.get<any>(url);
+  }
+
+  sanctionService(accHolderName:String){
+    const url =
+    'http://localhost:8080/checkName/' + accHolderName ;
+  const data = {
+    accNumber: accHolderName ,
+  };
+  return this.httpClient.get<any>(url);
   }
 
 }

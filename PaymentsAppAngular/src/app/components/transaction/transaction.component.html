@@ -1,6 +1,7 @@
 
 <label for="ttype">Transfer type:</label>
 <select name="ttype" id="ttype" [(ngModel)]="transferType">
+  <option value="" disabled selected hidden>Select your option</option>
   <option value="customer">Customers</option>
   <option value="bank">Bank</option>
 </select>
@@ -8,8 +9,16 @@
 <br>
 <label>Message Code:</label>
 <select  [(ngModel)]="msgCode">
-  <option value="c1">c1</option>
-  <option value="c2">c2</option>
+  <option value="" disabled selected hidden>Select your option</option>
+  <option value="c1">CHQB</option>
+  <option value="c2">CORT</option>
+  <option value="c2">HOLD</option>
+  <option value="c2">INTC</option>
+  <option value="c2">PHOB</option>
+  <option value="c2">PHOI</option>
+  <option value="c2">PHON</option>
+  <option value="c2">REPA</option>
+  <option value="c2">SDVA</option>
 </select>
 <br>
 <br>
